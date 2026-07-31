@@ -1,3 +1,5 @@
-pandas
-pytest
-streamlit
+anthropic==0.69.0
+sentence-transformers==3.3.1
+numpy==1.26.4
+python-dotenv==1.0.1
+pytest==8.3.4

@@ -1,138 +1,166 @@
-from typing import List, Dict, Tuple, Optional
-from dataclasses import dataclass
-import csv
+"""Generation layer: asks Claude to pick the best songs from retrieved candidates."""
 
-@dataclass
-class Song:
-    """
-    Represents a song and its attributes.
-    Required by tests/test_recommender.py
-    """
-    id: int
-    title: str
-    artist: str
-    genre: str
-    mood: str
-    energy: float
-    tempo_bpm: float
-    valence: float
-    danceability: float
-    acousticness: float
+import json
+import logging
+import os
+from typing import List, Dict
 
-@dataclass
-class UserProfile:
-    """
-    Represents a user's taste preferences.
-    Required by tests/test_recommender.py
-    """
-    favorite_genre: str
-    favorite_mood: str
-    target_energy: float
-    likes_acoustic: bool
+import anthropic
+
+from .validator import validate_recommendations, fallback_recommendations
+
+logger = logging.getLogger(__name__)
+
+MODEL_NAME = "claude-sonnet-4-6"
+MAX_TOKENS = 2048
+NUM_RECOMMENDATIONS = 3
+
+SYSTEM_PROMPT = """You are a music recommendation assistant. You will be given a user's \
+natural-language request and a list of candidate songs retrieved from a catalog.
+
+Rules:
+- You may ONLY recommend songs that appear in the provided candidate list.
+- Never invent, modify, or recommend a song that is not in the candidate list.
+- Choose exactly {n} songs that best match the user's request.
+- For each choice, give a short 1-2 sentence explanation of why it fits the request.
+
+Respond with ONLY valid JSON in this exact shape, no other text:
+{{"recommendations": [{{"title": "...", "artist": "...", "reason": "..."}}, ...]}}
+""".format(n=NUM_RECOMMENDATIONS)
+
+
+def _format_candidates(candidates: List[Dict]) -> str:
+    lines = []
+    for song, score in candidates:
+        mood_tags = ", ".join(song.get("mood_tags", []))
+        instrumental = "instrumental" if song.get("instrumental") else "has vocals"
+        lines.append(
+            f"- \"{song['title']}\" by {song['artist']} | genre: {song['genre']} | "
+            f"mood: {mood_tags} | tempo: {song['tempo']} | {instrumental} | "
+            f"{song['description']} (similarity: {score:.3f})"
+        )
+    return "\n".join(lines)
+
+
+def _build_user_message(query: str, candidates: List[Dict], correction: str = "") -> str:
+    message = f'User request: "{query}"\n\nCandidate songs:\n{_format_candidates(candidates)}'
+    if correction:
+        message += f"\n\n{correction}"
+    return message
+
+
+def _parse_response_json(text: str) -> List[Dict]:
+    text = text.strip()
+    if text.startswith("```"):
+        text = text.strip("`")
+        if text.startswith("json"):
+            text = text[4:]
+    data = json.loads(text)
+    return data.get("recommendations", [])
+
+
+class MusicRecommenderError(Exception):
+    """Raised for user-facing recommendation failures (API key, network, rate limit)."""
+
 
 class Recommender:
-    """
-    OOP implementation of the recommendation logic.
-    Required by tests/test_recommender.py
-    """
-    def __init__(self, songs: List[Song]):
-        self.songs = songs
+    """Combines retrieval with Claude-generated, guardrail-validated recommendations."""
 
-    def recommend(self, user: UserProfile, k: int = 5) -> List[Song]:
-        # TODO: Implement recommendation logic
-        return self.songs[:k]
-
-    def explain_recommendation(self, user: UserProfile, song: Song) -> str:
-        # TODO: Implement explanation logic
-        return "Explanation placeholder"
-
-def load_songs(csv_path: str) -> List[Dict]:
-    """
-    Loads songs from a CSV file.
-    Required by src/main.py
-    """
-    songs: List[Dict] = []
-    with open(csv_path, newline="", encoding="utf-8") as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            songs.append(
-                {
-                    "id": int(row["id"]),
-                    "title": row["title"],
-                    "artist": row["artist"],
-                    "genre": row["genre"],
-                    "mood": row["mood"],
-                    "energy": float(row["energy"]),
-                    "tempo_bpm": float(row["tempo_bpm"]),
-                    "valence": float(row["valence"]),
-                    "danceability": float(row["danceability"]),
-                    "acousticness": float(row["acousticness"]),
-                }
+    def __init__(self, retriever, client: anthropic.Anthropic = None):
+        self.retriever = retriever
+        if client is None and not os.environ.get("ANTHROPIC_API_KEY"):
+            raise MusicRecommenderError(
+                "ANTHROPIC_API_KEY is not set. Copy .env.example to .env and add your key."
             )
+        try:
+            self.client = client or anthropic.Anthropic()
+        except Exception as exc:
+            logger.error("Failed to initialize Anthropic client: %s", exc)
+            raise MusicRecommenderError(
+                "Could not initialize the Anthropic client. Check that ANTHROPIC_API_KEY "
+                "is set in your environment or .env file."
+            ) from exc
 
-    print(f"Loaded songs: {len(songs)}")
-    return songs
+    def _call_model(self, user_message: str) -> str:
+        try:
+            response = self.client.messages.create(
+                model=MODEL_NAME,
+                max_tokens=MAX_TOKENS,
+                system=SYSTEM_PROMPT,
+                messages=[{"role": "user", "content": user_message}],
+            )
+        except anthropic.AuthenticationError as exc:
+            logger.error("Authentication error calling Anthropic API: %s", exc)
+            raise MusicRecommenderError(
+                "Authentication failed. Check that ANTHROPIC_API_KEY is set correctly."
+            ) from exc
+        except anthropic.RateLimitError as exc:
+            logger.error("Rate limit hit calling Anthropic API: %s", exc)
+            raise MusicRecommenderError(
+                "Rate limit reached. Please wait a moment and try again."
+            ) from exc
+        except anthropic.APIConnectionError as exc:
+            logger.error("Network error calling Anthropic API: %s", exc)
+            raise MusicRecommenderError(
+                "Network error reaching the Anthropic API. Check your internet connection."
+            ) from exc
+        except anthropic.APIStatusError as exc:
+            logger.error("Anthropic API error: %s", exc)
+            raise MusicRecommenderError(f"The Anthropic API returned an error: {exc}") from exc
 
-def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
-    """Return a song's total score and reason list based on user preferences."""
-    total = 0.0
-    reasons: List[str] = []
+        text = next((b.text for b in response.content if b.type == "text"), "")
+        logger.debug("Raw model response: %s", text)
+        return text
 
-    # Helpers to accept multiple possible key names
-    user_genre = user_prefs.get("genre") or user_prefs.get("favorite_genre")
-    user_mood = user_prefs.get("mood") or user_prefs.get("favorite_mood")
-    # energy target may be named 'energy' or 'target_energy'
-    target_energy = None
-    if "energy" in user_prefs:
-        target_energy = user_prefs.get("energy")
-    else:
-        target_energy = user_prefs.get("target_energy")
+    def recommend(self, query: str) -> List[Dict]:
+        """Retrieve candidates, ask Claude to pick the best k, and validate the result."""
+        logger.info("Received query: %r", query)
+        candidates = self.retriever.retrieve(query)
+        logger.info(
+            "Retrieved %d candidates with scores: %s",
+            len(candidates),
+            [(s["title"], round(sc, 4)) for s, sc in candidates],
+        )
+        candidate_songs = [song for song, _ in candidates]
 
-    # acoustic preference: either an explicit target or a boolean like likes_acoustic
-    target_acoustic = None
-    if "target_acousticness" in user_prefs:
-        target_acoustic = user_prefs.get("target_acousticness")
-    elif user_prefs.get("likes_acoustic"):
-        # assume preference for high acousticness
-        target_acoustic = 1.0
+        user_message = _build_user_message(query, candidates)
+        raw_text = self._call_model(user_message)
 
-    # 1) Genre exact match -> +1.5 (experimental: halved genre importance)
-    if user_genre and song.get("genre") and user_genre.lower() == song.get("genre").lower():
-        pts = 1.5
-        total += pts
-        reasons.append(f"genre match (+{pts:.2f})")
+        try:
+            recommendations = _parse_response_json(raw_text)
+        except (json.JSONDecodeError, AttributeError) as exc:
+            logger.warning("Failed to parse model response as JSON: %s", exc)
+            recommendations = []
 
-    # 2) Mood exact match -> +2.0
-    if user_mood and song.get("mood") and user_mood.lower() == song.get("mood").lower():
-        pts = 2.0
-        total += pts
-        reasons.append(f"mood match (+{pts:.2f})")
+        valid, invalid = validate_recommendations(recommendations, candidate_songs)
+        logger.info("Validation result: %d valid, %d invalid", len(valid), len(invalid))
 
-    # 3) Energy closeness -> up to +6.0 (experimental: doubled energy importance)
-    if target_energy is not None and song.get("energy") is not None:
-        dist = abs(float(song["energy"]) - float(target_energy))
-        sim = max(0.0, 1.0 - dist)  # 1.0 for exact match, 0 at distance >=1
-        pts = 6.0 * sim
-        if pts > 0:
-            total += pts
-            reasons.append(f"energy closeness (+{pts:.2f})")
+        if len(valid) >= NUM_RECOMMENDATIONS:
+            return valid[:NUM_RECOMMENDATIONS]
 
-    # 4) Acousticness closeness -> up to +2.0, only if user specified an acoustic preference
-    if target_acoustic is not None and song.get("acousticness") is not None:
-        dist = abs(float(song["acousticness"]) - float(target_acoustic))
-        sim = max(0.0, 1.0 - dist)
-        pts = 2.0 * sim
-        if pts > 0:
-            total += pts
-            reasons.append(f"acousticness closeness (+{pts:.2f})")
+        # Re-prompt once with a correction message.
+        logger.warning("Validation failed or incomplete; re-prompting model once")
+        correction = (
+            "Your previous response included songs not present in the candidate list above. "
+            "You must choose ONLY from the candidate list provided. Please try again."
+        )
+        retry_message = _build_user_message(query, candidates, correction=correction)
+        retry_raw = self._call_model(retry_message)
 
-    return total, reasons
+        try:
+            retry_recommendations = _parse_response_json(retry_raw)
+        except (json.JSONDecodeError, AttributeError) as exc:
+            logger.warning("Failed to parse retry response as JSON: %s", exc)
+            retry_recommendations = []
 
-def recommend_songs(user_prefs: Dict, songs: List[Dict], k: int = 5) -> List[Tuple[Dict, float, str]]:
-    """Return the top-k songs ranked by score for the given user preferences."""
-    scored = [
-        (song, *score_song(user_prefs, song))
-        for song in songs
-    ]
-    scored.sort(key=lambda item: item[1], reverse=True)
-    return scored[:k]
+        retry_valid, retry_invalid = validate_recommendations(retry_recommendations, candidate_songs)
+        logger.info(
+            "Retry validation result: %d valid, %d invalid", len(retry_valid), len(retry_invalid)
+        )
+
+        if len(retry_valid) >= NUM_RECOMMENDATIONS:
+            return retry_valid[:NUM_RECOMMENDATIONS]
+
+        # Fall back to the top retrieved candidates.
+        logger.error("Validation failed twice; falling back to top retrieved candidates")
+        return fallback_recommendations(candidate_songs, k=NUM_RECOMMENDATIONS)

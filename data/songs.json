@@ -1,0 +1,1500 @@
+[
+  {
+    "id": 1,
+    "title": "Bohemian Rhapsody",
+    "artist": "Queen",
+    "genre": "rock",
+    "mood_tags": [
+      "epic",
+      "dramatic",
+      "triumphant"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "A genre-bending rock opera that shifts from ballad to hard rock, famous for its layered vocal harmonies."
+  },
+  {
+    "id": 2,
+    "title": "Stairway to Heaven",
+    "artist": "Led Zeppelin",
+    "genre": "rock",
+    "mood_tags": [
+      "epic",
+      "reflective",
+      "building"
+    ],
+    "tempo": "slow",
+    "instrumental": false,
+    "description": "A classic rock epic that builds from a gentle acoustic intro into a soaring electric guitar climax."
+  },
+  {
+    "id": 3,
+    "title": "Back in Black",
+    "artist": "AC/DC",
+    "genre": "rock",
+    "mood_tags": [
+      "energetic",
+      "confident",
+      "gritty"
+    ],
+    "tempo": "fast",
+    "instrumental": false,
+    "description": "A hard-driving rock anthem powered by a instantly recognizable guitar riff and swaggering vocals."
+  },
+  {
+    "id": 4,
+    "title": "Smells Like Teen Spirit",
+    "artist": "Nirvana",
+    "genre": "rock",
+    "mood_tags": [
+      "angsty",
+      "rebellious",
+      "energetic"
+    ],
+    "tempo": "fast",
+    "instrumental": false,
+    "description": "The grunge anthem that defined a generation with its loud-quiet-loud dynamics and raw energy."
+  },
+  {
+    "id": 5,
+    "title": "Sweet Child O' Mine",
+    "artist": "Guns N' Roses",
+    "genre": "rock",
+    "mood_tags": [
+      "nostalgic",
+      "uplifting",
+      "energetic"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "An arena-rock staple built around an instantly hummable guitar intro and soaring chorus."
+  },
+  {
+    "id": 6,
+    "title": "Hotel California",
+    "artist": "Eagles",
+    "genre": "rock",
+    "mood_tags": [
+      "mysterious",
+      "reflective",
+      "moody"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "A haunting rock ballad with intricate dual guitar solos and cryptic, atmospheric lyrics."
+  },
+  {
+    "id": 7,
+    "title": "Livin' on a Prayer",
+    "artist": "Bon Jovi",
+    "genre": "rock",
+    "mood_tags": [
+      "anthemic",
+      "uplifting",
+      "energetic"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "A stadium-rock anthem about working-class resilience, built for singing along at full volume."
+  },
+  {
+    "id": 8,
+    "title": "Enter Sandman",
+    "artist": "Metallica",
+    "genre": "metal",
+    "mood_tags": [
+      "dark",
+      "intense",
+      "ominous"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "A thrash-influenced metal anthem with a menacing riff that became one of the genre's most iconic songs."
+  },
+  {
+    "id": 9,
+    "title": "Master of Puppets",
+    "artist": "Metallica",
+    "genre": "metal",
+    "mood_tags": [
+      "aggressive",
+      "intense",
+      "dark"
+    ],
+    "tempo": "fast",
+    "instrumental": false,
+    "description": "A thrash metal epic with intricate riffing and a relentless, controlling lyrical theme."
+  },
+  {
+    "id": 10,
+    "title": "Paranoid",
+    "artist": "Black Sabbath",
+    "genre": "metal",
+    "mood_tags": [
+      "dark",
+      "urgent",
+      "gritty"
+    ],
+    "tempo": "fast",
+    "instrumental": false,
+    "description": "One of metal's foundational tracks, driven by a fast, fuzzed-out riff and anxious lyrics."
+  },
+  {
+    "id": 11,
+    "title": "Painkiller",
+    "artist": "Judas Priest",
+    "genre": "metal",
+    "mood_tags": [
+      "aggressive",
+      "intense",
+      "triumphant"
+    ],
+    "tempo": "fast",
+    "instrumental": false,
+    "description": "A blistering speed-metal track with soaring vocals and relentless double-bass drumming."
+  },
+  {
+    "id": 12,
+    "title": "Toxicity",
+    "artist": "System of a Down",
+    "genre": "metal",
+    "mood_tags": [
+      "chaotic",
+      "intense",
+      "urgent"
+    ],
+    "tempo": "fast",
+    "instrumental": false,
+    "description": "A genre-blending metal track that swings between manic energy and melodic hooks."
+  },
+  {
+    "id": 13,
+    "title": "Immigrant Song",
+    "artist": "Led Zeppelin",
+    "genre": "rock",
+    "mood_tags": [
+      "fierce",
+      "epic",
+      "driving"
+    ],
+    "tempo": "fast",
+    "instrumental": false,
+    "description": "A pounding, war-cry rock track famous for its distinctive falsetto wail and thunderous rhythm."
+  },
+  {
+    "id": 14,
+    "title": "Billie Jean",
+    "artist": "Michael Jackson",
+    "genre": "pop",
+    "mood_tags": [
+      "groovy",
+      "confident",
+      "mysterious"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "A pop masterpiece built on a hypnotic bassline and one of the most famous grooves in music history."
+  },
+  {
+    "id": 15,
+    "title": "Thriller",
+    "artist": "Michael Jackson",
+    "genre": "pop",
+    "mood_tags": [
+      "playful",
+      "spooky",
+      "energetic"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "A theatrical pop-funk hit with a Halloween-ready horror theme and unforgettable music video legacy."
+  },
+  {
+    "id": 16,
+    "title": "Uptown Funk",
+    "artist": "Mark Ronson ft. Bruno Mars",
+    "genre": "pop",
+    "mood_tags": [
+      "funky",
+      "energetic",
+      "confident"
+    ],
+    "tempo": "fast",
+    "instrumental": false,
+    "description": "A retro-funk revival packed with horns and swagger, made for dancing."
+  },
+  {
+    "id": 17,
+    "title": "Shake It Off",
+    "artist": "Taylor Swift",
+    "genre": "pop",
+    "mood_tags": [
+      "upbeat",
+      "happy",
+      "carefree"
+    ],
+    "tempo": "fast",
+    "instrumental": false,
+    "description": "A bright, bouncy pop anthem about brushing off criticism and having fun."
+  },
+  {
+    "id": 18,
+    "title": "Blinding Lights",
+    "artist": "The Weeknd",
+    "genre": "pop",
+    "mood_tags": [
+      "nostalgic",
+      "energetic",
+      "euphoric"
+    ],
+    "tempo": "fast",
+    "instrumental": false,
+    "description": "A synth-driven pop hit soaked in 80s nostalgia with a relentless, driving beat."
+  },
+  {
+    "id": 19,
+    "title": "Levitating",
+    "artist": "Dua Lipa",
+    "genre": "pop",
+    "mood_tags": [
+      "upbeat",
+      "playful",
+      "energetic"
+    ],
+    "tempo": "fast",
+    "instrumental": false,
+    "description": "A disco-pop confection with a bouncy bassline built for the dance floor."
+  },
+  {
+    "id": 20,
+    "title": "Rolling in the Deep",
+    "artist": "Adele",
+    "genre": "pop",
+    "mood_tags": [
+      "powerful",
+      "intense",
+      "heartbroken"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "A soulful pop-blues anthem about betrayal, driven by Adele's powerhouse vocals."
+  },
+  {
+    "id": 21,
+    "title": "Someone Like You",
+    "artist": "Adele",
+    "genre": "pop",
+    "mood_tags": [
+      "sad",
+      "reflective",
+      "heartfelt"
+    ],
+    "tempo": "slow",
+    "instrumental": false,
+    "description": "A stripped-back piano ballad about heartbreak and moving on."
+  },
+  {
+    "id": 22,
+    "title": "Happy",
+    "artist": "Pharrell Williams",
+    "genre": "pop",
+    "mood_tags": [
+      "happy",
+      "upbeat",
+      "joyful"
+    ],
+    "tempo": "fast",
+    "instrumental": false,
+    "description": "An infectiously cheerful pop-soul track built entirely around the feeling of joy."
+  },
+  {
+    "id": 23,
+    "title": "Watermelon Sugar",
+    "artist": "Harry Styles",
+    "genre": "pop",
+    "mood_tags": [
+      "breezy",
+      "happy",
+      "carefree"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "A sun-soaked pop-rock tune with a nostalgic, summery feel."
+  },
+  {
+    "id": 24,
+    "title": "Take Five",
+    "artist": "Dave Brubeck Quartet",
+    "genre": "jazz",
+    "mood_tags": [
+      "cool",
+      "relaxed",
+      "sophisticated"
+    ],
+    "tempo": "medium",
+    "instrumental": true,
+    "description": "A landmark instrumental jazz piece in 5/4 time, famous for its laid-back saxophone melody."
+  },
+  {
+    "id": 25,
+    "title": "So What",
+    "artist": "Miles Davis",
+    "genre": "jazz",
+    "mood_tags": [
+      "cool",
+      "relaxed",
+      "moody"
+    ],
+    "tempo": "medium",
+    "instrumental": true,
+    "description": "A modal jazz classic built around a spare, hypnotic bassline and understated trumpet lines."
+  },
+  {
+    "id": 26,
+    "title": "A Love Supreme, Pt. 1 – Acknowledgement",
+    "artist": "John Coltrane",
+    "genre": "jazz",
+    "mood_tags": [
+      "spiritual",
+      "intense",
+      "reflective"
+    ],
+    "tempo": "medium",
+    "instrumental": true,
+    "description": "A searching, spiritually charged instrumental jazz suite opener driven by Coltrane's saxophone."
+  },
+  {
+    "id": 27,
+    "title": "Take the 'A' Train",
+    "artist": "Duke Ellington",
+    "genre": "jazz",
+    "mood_tags": [
+      "upbeat",
+      "sophisticated",
+      "swinging"
+    ],
+    "tempo": "medium",
+    "instrumental": true,
+    "description": "A big-band swing standard with a bright, propulsive rhythm perfect for the era's dance halls."
+  },
+  {
+    "id": 28,
+    "title": "Blue in Green",
+    "artist": "Miles Davis",
+    "genre": "jazz",
+    "mood_tags": [
+      "melancholy",
+      "reflective",
+      "cool"
+    ],
+    "tempo": "slow",
+    "instrumental": true,
+    "description": "A hushed, introspective modal jazz ballad built around sparse piano and muted trumpet."
+  },
+  {
+    "id": 29,
+    "title": "Feeling Good",
+    "artist": "Nina Simone",
+    "genre": "jazz",
+    "mood_tags": [
+      "triumphant",
+      "soulful",
+      "uplifting"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "A dramatic jazz-soul rendition about renewal, carried by Simone's commanding voice."
+  },
+  {
+    "id": 30,
+    "title": "My Favorite Things",
+    "artist": "John Coltrane",
+    "genre": "jazz",
+    "mood_tags": [
+      "playful",
+      "energetic",
+      "sophisticated"
+    ],
+    "tempo": "medium",
+    "instrumental": true,
+    "description": "An extended instrumental reworking of the show tune into a hypnotic modal jazz vehicle."
+  },
+  {
+    "id": 31,
+    "title": "Cantaloupe Island",
+    "artist": "Herbie Hancock",
+    "genre": "jazz",
+    "mood_tags": [
+      "groovy",
+      "relaxed",
+      "cool"
+    ],
+    "tempo": "medium",
+    "instrumental": true,
+    "description": "A funky, riff-based jazz instrumental with an easygoing, head-nodding groove."
+  },
+  {
+    "id": 32,
+    "title": "Clair de Lune",
+    "artist": "Claude Debussy",
+    "genre": "classical",
+    "mood_tags": [
+      "dreamy",
+      "peaceful",
+      "reflective"
+    ],
+    "tempo": "slow",
+    "instrumental": true,
+    "description": "A gentle, impressionistic piano piece evoking soft moonlight and quiet reflection."
+  },
+  {
+    "id": 33,
+    "title": "Moonlight Sonata, 1st Movement",
+    "artist": "Ludwig van Beethoven",
+    "genre": "classical",
+    "mood_tags": [
+      "melancholy",
+      "reflective",
+      "haunting"
+    ],
+    "tempo": "slow",
+    "instrumental": true,
+    "description": "A somber, slow-moving piano sonata movement built on rippling arpeggios."
+  },
+  {
+    "id": 34,
+    "title": "Canon in D",
+    "artist": "Johann Pachelbel",
+    "genre": "classical",
+    "mood_tags": [
+      "peaceful",
+      "uplifting",
+      "romantic"
+    ],
+    "tempo": "medium",
+    "instrumental": true,
+    "description": "A beloved baroque piece built on a repeating chord progression, widely used at weddings."
+  },
+  {
+    "id": 35,
+    "title": "The Four Seasons – Spring",
+    "artist": "Antonio Vivaldi",
+    "genre": "classical",
+    "mood_tags": [
+      "joyful",
+      "bright",
+      "energetic"
+    ],
+    "tempo": "fast",
+    "instrumental": true,
+    "description": "A vivid baroque violin concerto movement depicting the arrival of spring."
+  },
+  {
+    "id": 36,
+    "title": "Prelude in C Major",
+    "artist": "Johann Sebastian Bach",
+    "genre": "classical",
+    "mood_tags": [
+      "peaceful",
+      "meditative",
+      "flowing"
+    ],
+    "tempo": "slow",
+    "instrumental": true,
+    "description": "A simple, cascading arpeggiated piano prelude often used for calm study sessions."
+  },
+  {
+    "id": 37,
+    "title": "Symphony No. 5, 1st Movement",
+    "artist": "Ludwig van Beethoven",
+    "genre": "classical",
+    "mood_tags": [
+      "dramatic",
+      "powerful",
+      "intense"
+    ],
+    "tempo": "medium",
+    "instrumental": true,
+    "description": "One of classical music's most famous openings, built on a four-note motif of fate."
+  },
+  {
+    "id": 38,
+    "title": "Gymnopedie No. 1",
+    "artist": "Erik Satie",
+    "genre": "classical",
+    "mood_tags": [
+      "dreamy",
+      "melancholy",
+      "peaceful"
+    ],
+    "tempo": "slow",
+    "instrumental": true,
+    "description": "A sparse, wandering piano piece with a gentle, meditative quality."
+  },
+  {
+    "id": 39,
+    "title": "Air on the G String",
+    "artist": "Johann Sebastian Bach",
+    "genre": "classical",
+    "mood_tags": [
+      "serene",
+      "elegant",
+      "peaceful"
+    ],
+    "tempo": "slow",
+    "instrumental": true,
+    "description": "A stately, singing orchestral melody arranged for strings, often used for relaxation."
+  },
+  {
+    "id": 40,
+    "title": "Rhapsody in Blue",
+    "artist": "George Gershwin",
+    "genre": "classical",
+    "mood_tags": [
+      "playful",
+      "sweeping",
+      "energetic"
+    ],
+    "tempo": "medium",
+    "instrumental": true,
+    "description": "A jazz-infused orchestral rhapsody that opens with a famous clarinet glissando."
+  },
+  {
+    "id": 41,
+    "title": "N.Y. State of Mind",
+    "artist": "Nas",
+    "genre": "hip-hop",
+    "mood_tags": [
+      "gritty",
+      "intense",
+      "reflective"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "A dense, vivid lyrical portrait of New York street life over a moody jazz-sampled beat."
+  },
+  {
+    "id": 42,
+    "title": "Juicy",
+    "artist": "The Notorious B.I.G.",
+    "genre": "hip-hop",
+    "mood_tags": [
+      "triumphant",
+      "nostalgic",
+      "confident"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "An autobiographical rags-to-riches anthem set over a smooth, soulful sample."
+  },
+  {
+    "id": 43,
+    "title": "Alright",
+    "artist": "Kendrick Lamar",
+    "genre": "hip-hop",
+    "mood_tags": [
+      "defiant",
+      "hopeful",
+      "energetic"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "An uplifting protest anthem blending jazz and hip-hop with a message of perseverance."
+  },
+  {
+    "id": 44,
+    "title": "Lose Yourself",
+    "artist": "Eminem",
+    "genre": "hip-hop",
+    "mood_tags": [
+      "intense",
+      "motivational",
+      "urgent"
+    ],
+    "tempo": "fast",
+    "instrumental": false,
+    "description": "A high-stakes motivational rap anthem about seizing a single defining opportunity."
+  },
+  {
+    "id": 45,
+    "title": "HUMBLE.",
+    "artist": "Kendrick Lamar",
+    "genre": "hip-hop",
+    "mood_tags": [
+      "confident",
+      "aggressive",
+      "energetic"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "A stripped-down, piano-driven trap banger with a commanding, minimalist flow."
+  },
+  {
+    "id": 46,
+    "title": "God's Plan",
+    "artist": "Drake",
+    "genre": "hip-hop",
+    "mood_tags": [
+      "confident",
+      "reflective",
+      "smooth"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "A moody, melodic rap-pop hit about gratitude and staying grounded amid success."
+  },
+  {
+    "id": 47,
+    "title": "Sicko Mode",
+    "artist": "Travis Scott",
+    "genre": "hip-hop",
+    "mood_tags": [
+      "energetic",
+      "chaotic",
+      "hype"
+    ],
+    "tempo": "fast",
+    "instrumental": false,
+    "description": "A multi-part trap epic that shifts tempo and mood across dramatic beat switches."
+  },
+  {
+    "id": 48,
+    "title": "The Message",
+    "artist": "Grandmaster Flash and the Furious Five",
+    "genre": "hip-hop",
+    "mood_tags": [
+      "gritty",
+      "urgent",
+      "reflective"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "A pioneering socially conscious rap track depicting the struggles of inner-city life."
+  },
+  {
+    "id": 49,
+    "title": "Passionfruit",
+    "artist": "Drake",
+    "genre": "hip-hop",
+    "mood_tags": [
+      "chill",
+      "moody",
+      "smooth"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "A tropical, downtempo R&B-rap hybrid built around a hypnotic guitar loop."
+  },
+  {
+    "id": 50,
+    "title": "Levels",
+    "artist": "Avicii",
+    "genre": "electronic",
+    "mood_tags": [
+      "euphoric",
+      "energetic",
+      "uplifting"
+    ],
+    "tempo": "fast",
+    "instrumental": true,
+    "description": "An anthemic progressive house track famous for its soaring, sample-based melodic hook."
+  },
+  {
+    "id": 51,
+    "title": "Strobe",
+    "artist": "deadmau5",
+    "genre": "electronic",
+    "mood_tags": [
+      "dreamy",
+      "building",
+      "euphoric"
+    ],
+    "tempo": "medium",
+    "instrumental": true,
+    "description": "A slow-building progressive house epic that unfolds gradually into a euphoric climax."
+  },
+  {
+    "id": 52,
+    "title": "One More Time",
+    "artist": "Daft Punk",
+    "genre": "electronic",
+    "mood_tags": [
+      "euphoric",
+      "joyful",
+      "energetic"
+    ],
+    "tempo": "fast",
+    "instrumental": false,
+    "description": "A vocoder-laced house anthem celebrating the pure joy of dancing all night."
+  },
+  {
+    "id": 53,
+    "title": "Around the World",
+    "artist": "Daft Punk",
+    "genre": "electronic",
+    "mood_tags": [
+      "hypnotic",
+      "groovy",
+      "energetic"
+    ],
+    "tempo": "fast",
+    "instrumental": true,
+    "description": "A repetitive, hypnotic house track built entirely around a looping bassline and vocoded phrase."
+  },
+  {
+    "id": 54,
+    "title": "Sandstorm",
+    "artist": "Darude",
+    "genre": "electronic",
+    "mood_tags": [
+      "energetic",
+      "intense",
+      "driving"
+    ],
+    "tempo": "fast",
+    "instrumental": true,
+    "description": "An instantly recognizable trance anthem with a relentless, pulsing synth lead."
+  },
+  {
+    "id": 55,
+    "title": "Midnight City",
+    "artist": "M83",
+    "genre": "electronic",
+    "mood_tags": [
+      "euphoric",
+      "nostalgic",
+      "dreamy"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "A shimmering synth-pop anthem with a soaring saxophone hook and dreamlike atmosphere."
+  },
+  {
+    "id": 56,
+    "title": "Genesis",
+    "artist": "Justice",
+    "genre": "electronic",
+    "mood_tags": [
+      "dark",
+      "energetic",
+      "gritty"
+    ],
+    "tempo": "fast",
+    "instrumental": true,
+    "description": "A distorted, riff-driven electro track with an aggressive, rock-inflected edge."
+  },
+  {
+    "id": 57,
+    "title": "Scary Monsters and Nice Sprites",
+    "artist": "Skrillex",
+    "genre": "electronic",
+    "mood_tags": [
+      "chaotic",
+      "intense",
+      "energetic"
+    ],
+    "tempo": "fast",
+    "instrumental": true,
+    "description": "A genre-defining dubstep track known for its jarring bass drops and glitchy textures."
+  },
+  {
+    "id": 58,
+    "title": "Da Funk",
+    "artist": "Daft Punk",
+    "genre": "electronic",
+    "mood_tags": [
+      "groovy",
+      "funky",
+      "energetic"
+    ],
+    "tempo": "medium",
+    "instrumental": true,
+    "description": "A gritty, filtered house groove with a squelchy, funk-inspired bassline."
+  },
+  {
+    "id": 59,
+    "title": "Opus",
+    "artist": "Eric Prydz",
+    "genre": "electronic",
+    "mood_tags": [
+      "building",
+      "euphoric",
+      "hypnotic"
+    ],
+    "tempo": "medium",
+    "instrumental": true,
+    "description": "A slow-burning progressive house track that patiently builds to a massive emotional peak."
+  },
+  {
+    "id": 60,
+    "title": "Rainy Day Ambience",
+    "artist": "Idle Hours",
+    "genre": "lo-fi",
+    "mood_tags": [
+      "cozy",
+      "relaxed",
+      "peaceful"
+    ],
+    "tempo": "slow",
+    "instrumental": true,
+    "description": "A mellow lo-fi hip-hop beat with soft piano chords and gentle vinyl crackle, ideal for studying."
+  },
+  {
+    "id": 61,
+    "title": "Study Session",
+    "artist": "Chillhop Collective",
+    "genre": "lo-fi",
+    "mood_tags": [
+      "focused",
+      "chill",
+      "peaceful"
+    ],
+    "tempo": "medium",
+    "instrumental": true,
+    "description": "A laid-back instrumental beat built for background focus, with warm keys and a soft boom-bap groove."
+  },
+  {
+    "id": 62,
+    "title": "Late Night Library",
+    "artist": "Bsd.u",
+    "genre": "lo-fi",
+    "mood_tags": [
+      "nostalgic",
+      "relaxed",
+      "cozy"
+    ],
+    "tempo": "slow",
+    "instrumental": true,
+    "description": "A dusty, nostalgic lo-fi instrumental with muted horns and a slow, comfortable groove."
+  },
+  {
+    "id": 63,
+    "title": "Coffee Shop Window",
+    "artist": "Jinsang",
+    "genre": "lo-fi",
+    "mood_tags": [
+      "calm",
+      "reflective",
+      "cozy"
+    ],
+    "tempo": "medium",
+    "instrumental": true,
+    "description": "A jazzy lo-fi loop with warm sampled chords, perfect for quiet mornings."
+  },
+  {
+    "id": 64,
+    "title": "Autumn Leaves Falling",
+    "artist": "Idealism",
+    "genre": "lo-fi",
+    "mood_tags": [
+      "melancholy",
+      "peaceful",
+      "reflective"
+    ],
+    "tempo": "slow",
+    "instrumental": true,
+    "description": "A wistful, mellow lo-fi track layered with soft rain sounds and gentle keys."
+  },
+  {
+    "id": 65,
+    "title": "Desk Lamp Glow",
+    "artist": "Aso",
+    "genre": "lo-fi",
+    "mood_tags": [
+      "focused",
+      "chill",
+      "cozy"
+    ],
+    "tempo": "medium",
+    "instrumental": true,
+    "description": "A minimal lo-fi beat with a steady, unobtrusive rhythm designed for deep focus work."
+  },
+  {
+    "id": 66,
+    "title": "Homework Break",
+    "artist": "Kupla",
+    "genre": "lo-fi",
+    "mood_tags": [
+      "relaxed",
+      "playful",
+      "chill"
+    ],
+    "tempo": "medium",
+    "instrumental": true,
+    "description": "A warm, melodic lo-fi instrumental with a light, easygoing bounce."
+  },
+  {
+    "id": 67,
+    "title": "Midnight Train Ride",
+    "artist": "Tomppabeats",
+    "genre": "lo-fi",
+    "mood_tags": [
+      "nostalgic",
+      "calm",
+      "dreamy"
+    ],
+    "tempo": "slow",
+    "instrumental": true,
+    "description": "A slow, textured lo-fi track evoking a quiet late-night commute."
+  },
+  {
+    "id": 68,
+    "title": "Jolene",
+    "artist": "Dolly Parton",
+    "genre": "country",
+    "mood_tags": [
+      "pleading",
+      "heartfelt",
+      "urgent"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "A classic country ballad pleading with a rival not to take away the singer's man."
+  },
+  {
+    "id": 69,
+    "title": "Ring of Fire",
+    "artist": "Johnny Cash",
+    "genre": "country",
+    "mood_tags": [
+      "passionate",
+      "intense",
+      "confident"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "A horn-driven country classic about the overwhelming, consuming nature of love."
+  },
+  {
+    "id": 70,
+    "title": "Friends in Low Places",
+    "artist": "Garth Brooks",
+    "genre": "country",
+    "mood_tags": [
+      "defiant",
+      "fun",
+      "rowdy"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "An upbeat honky-tonk anthem about celebrating life on your own terms."
+  },
+  {
+    "id": 71,
+    "title": "Take Me Home, Country Roads",
+    "artist": "John Denver",
+    "genre": "country",
+    "mood_tags": [
+      "nostalgic",
+      "warm",
+      "uplifting"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "A gentle, sing-along ode to home and the Appalachian countryside."
+  },
+  {
+    "id": 72,
+    "title": "Cruise",
+    "artist": "Florida Georgia Line",
+    "genre": "country",
+    "mood_tags": [
+      "breezy",
+      "happy",
+      "carefree"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "A sunny country-pop tune about a laid-back summer romance."
+  },
+  {
+    "id": 73,
+    "title": "Wagon Wheel",
+    "artist": "Old Crow Medicine Show",
+    "genre": "country",
+    "mood_tags": [
+      "upbeat",
+      "nostalgic",
+      "joyful"
+    ],
+    "tempo": "fast",
+    "instrumental": false,
+    "description": "A rollicking, banjo-driven road-trip anthem that became a modern campfire staple."
+  },
+  {
+    "id": 74,
+    "title": "The Dance",
+    "artist": "Garth Brooks",
+    "genre": "country",
+    "mood_tags": [
+      "bittersweet",
+      "reflective",
+      "heartfelt"
+    ],
+    "tempo": "slow",
+    "instrumental": false,
+    "description": "A tender ballad about cherishing love and life despite the pain of loss."
+  },
+  {
+    "id": 75,
+    "title": "I Will Always Love You",
+    "artist": "Whitney Houston",
+    "genre": "r&b",
+    "mood_tags": [
+      "heartfelt",
+      "powerful",
+      "emotional"
+    ],
+    "tempo": "slow",
+    "instrumental": false,
+    "description": "A towering vocal performance and one of the most iconic ballads about love and letting go."
+  },
+  {
+    "id": 76,
+    "title": "Superstition",
+    "artist": "Stevie Wonder",
+    "genre": "r&b",
+    "mood_tags": [
+      "funky",
+      "groovy",
+      "energetic"
+    ],
+    "tempo": "fast",
+    "instrumental": false,
+    "description": "A funk-soul classic driven by a razor-sharp clavinet riff and superstitious lyrics."
+  },
+  {
+    "id": 77,
+    "title": "No Diggity",
+    "artist": "Blackstreet",
+    "genre": "r&b",
+    "mood_tags": [
+      "smooth",
+      "confident",
+      "groovy"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "A silky 90s R&B hit with a laid-back groove and effortlessly cool vocal harmonies."
+  },
+  {
+    "id": 78,
+    "title": "Adorn",
+    "artist": "Miguel",
+    "genre": "r&b",
+    "mood_tags": [
+      "romantic",
+      "smooth",
+      "intimate"
+    ],
+    "tempo": "slow",
+    "instrumental": false,
+    "description": "A slow-burning, sensual R&B love song with a hypnotic, minimal groove."
+  },
+  {
+    "id": 79,
+    "title": "Crazy in Love",
+    "artist": "Beyoncé ft. Jay-Z",
+    "genre": "r&b",
+    "mood_tags": [
+      "confident",
+      "energetic",
+      "passionate"
+    ],
+    "tempo": "fast",
+    "instrumental": false,
+    "description": "A horn-blasting R&B-pop anthem about being consumed by new love."
+  },
+  {
+    "id": 80,
+    "title": "Ain't No Sunshine",
+    "artist": "Bill Withers",
+    "genre": "r&b",
+    "mood_tags": [
+      "melancholy",
+      "heartfelt",
+      "soulful"
+    ],
+    "tempo": "slow",
+    "instrumental": false,
+    "description": "A spare, soulful lament about missing someone, built around a simple repeated refrain."
+  },
+  {
+    "id": 81,
+    "title": "Redbone",
+    "artist": "Childish Gambino",
+    "genre": "r&b",
+    "mood_tags": [
+      "hazy",
+      "groovy",
+      "mysterious"
+    ],
+    "tempo": "slow",
+    "instrumental": false,
+    "description": "A psychedelic funk-soul track with a slinky falsetto vocal and warning undertone."
+  },
+  {
+    "id": 82,
+    "title": "Untitled (How Does It Feel)",
+    "artist": "D'Angelo",
+    "genre": "r&b",
+    "mood_tags": [
+      "sensual",
+      "smooth",
+      "intimate"
+    ],
+    "tempo": "slow",
+    "instrumental": false,
+    "description": "A slow, neo-soul groove built on rich instrumentation and an intimate vocal performance."
+  },
+  {
+    "id": 83,
+    "title": "Take On Me",
+    "artist": "a-ha",
+    "genre": "pop",
+    "mood_tags": [
+      "upbeat",
+      "nostalgic",
+      "euphoric"
+    ],
+    "tempo": "fast",
+    "instrumental": false,
+    "description": "An 80s synth-pop classic famous for its soaring falsetto chorus and driving synth line."
+  },
+  {
+    "id": 84,
+    "title": "Africa",
+    "artist": "Toto",
+    "genre": "pop",
+    "mood_tags": [
+      "nostalgic",
+      "warm",
+      "uplifting"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "A yacht-rock/pop staple with an unforgettable chorus and lush 80s production."
+  },
+  {
+    "id": 85,
+    "title": "Dreams",
+    "artist": "Fleetwood Mac",
+    "genre": "rock",
+    "mood_tags": [
+      "dreamy",
+      "melancholy",
+      "reflective"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "A hypnotic soft-rock classic with a gently rolling groove and wistful lyrics."
+  },
+  {
+    "id": 86,
+    "title": "Wonderwall",
+    "artist": "Oasis",
+    "genre": "rock",
+    "mood_tags": [
+      "nostalgic",
+      "heartfelt",
+      "anthemic"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "A britpop anthem built on a simple, iconic acoustic guitar progression."
+  },
+  {
+    "id": 87,
+    "title": "Creep",
+    "artist": "Radiohead",
+    "genre": "rock",
+    "mood_tags": [
+      "melancholy",
+      "angsty",
+      "intense"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "A brooding alt-rock anthem about insecurity, famous for its explosive chorus dynamics."
+  },
+  {
+    "id": 88,
+    "title": "Africa (Instrumental Study Mix)",
+    "artist": "Ambient Collective",
+    "genre": "instrumental",
+    "mood_tags": [
+      "calm",
+      "focused",
+      "peaceful"
+    ],
+    "tempo": "medium",
+    "instrumental": true,
+    "description": "A soft ambient reinterpretation built for background listening while working."
+  },
+  {
+    "id": 89,
+    "title": "Weightless",
+    "artist": "Marconi Union",
+    "genre": "ambient",
+    "mood_tags": [
+      "calm",
+      "peaceful",
+      "meditative"
+    ],
+    "tempo": "slow",
+    "instrumental": true,
+    "description": "A slow-evolving ambient piece engineered with soundscape research to promote deep relaxation."
+  },
+  {
+    "id": 90,
+    "title": "An Ending (Ascent)",
+    "artist": "Brian Eno",
+    "genre": "ambient",
+    "mood_tags": [
+      "peaceful",
+      "reflective",
+      "spacious"
+    ],
+    "tempo": "slow",
+    "instrumental": true,
+    "description": "A spacious ambient soundscape built from slow synthesizer swells, evoking quiet vastness."
+  },
+  {
+    "id": 91,
+    "title": "Music for Airports 1/1",
+    "artist": "Brian Eno",
+    "genre": "ambient",
+    "mood_tags": [
+      "calm",
+      "meditative",
+      "peaceful"
+    ],
+    "tempo": "slow",
+    "instrumental": true,
+    "description": "A foundational ambient composition designed to be as ignorable as it is interesting."
+  },
+  {
+    "id": 92,
+    "title": "River Flows in You",
+    "artist": "Yiruma",
+    "genre": "classical",
+    "mood_tags": [
+      "romantic",
+      "peaceful",
+      "reflective"
+    ],
+    "tempo": "slow",
+    "instrumental": true,
+    "description": "A gentle, contemporary piano piece with a flowing, emotionally warm melody."
+  },
+  {
+    "id": 93,
+    "title": "Comptine d'un autre été",
+    "artist": "Yann Tiersen",
+    "genre": "classical",
+    "mood_tags": [
+      "dreamy",
+      "melancholy",
+      "reflective"
+    ],
+    "tempo": "slow",
+    "instrumental": true,
+    "description": "A delicate, cascading piano piece known for its wistful, cinematic atmosphere."
+  },
+  {
+    "id": 94,
+    "title": "Divenire",
+    "artist": "Ludovico Einaudi",
+    "genre": "classical",
+    "mood_tags": [
+      "building",
+      "emotional",
+      "sweeping"
+    ],
+    "tempo": "medium",
+    "instrumental": true,
+    "description": "A modern piano-and-orchestra piece that gradually swells from intimate to sweeping."
+  },
+  {
+    "id": 95,
+    "title": "Experience",
+    "artist": "Ludovico Einaudi",
+    "genre": "classical",
+    "mood_tags": [
+      "reflective",
+      "emotional",
+      "building"
+    ],
+    "tempo": "medium",
+    "instrumental": true,
+    "description": "A minimalist, emotionally rising piano composition popular in film and study playlists."
+  },
+  {
+    "id": 96,
+    "title": "Nuvole Bianche",
+    "artist": "Ludovico Einaudi",
+    "genre": "classical",
+    "mood_tags": [
+      "melancholy",
+      "peaceful",
+      "reflective"
+    ],
+    "tempo": "slow",
+    "instrumental": true,
+    "description": "A tender, slowly unfolding piano piece evoking drifting white clouds."
+  },
+  {
+    "id": 97,
+    "title": "Familiar Piano Ground",
+    "artist": "Nils Frahm",
+    "genre": "ambient",
+    "mood_tags": [
+      "calm",
+      "meditative",
+      "dreamy"
+    ],
+    "tempo": "slow",
+    "instrumental": true,
+    "description": "A textured ambient-piano hybrid built from layered tape loops and soft dynamics."
+  },
+  {
+    "id": 98,
+    "title": "Says",
+    "artist": "Nils Frahm",
+    "genre": "ambient",
+    "mood_tags": [
+      "building",
+      "hypnotic",
+      "emotional"
+    ],
+    "tempo": "medium",
+    "instrumental": true,
+    "description": "A slow-building instrumental piece that layers a simple synth pattern into an emotional peak."
+  },
+  {
+    "id": 99,
+    "title": "Roygbiv",
+    "artist": "Boards of Canada",
+    "genre": "electronic",
+    "mood_tags": [
+      "hazy",
+      "nostalgic",
+      "dreamy"
+    ],
+    "tempo": "medium",
+    "instrumental": true,
+    "description": "A warped, nostalgic electronic soundscape with warm analog textures."
+  },
+  {
+    "id": 100,
+    "title": "Teardrop",
+    "artist": "Massive Attack",
+    "genre": "electronic",
+    "mood_tags": [
+      "haunting",
+      "melancholy",
+      "moody"
+    ],
+    "tempo": "slow",
+    "instrumental": false,
+    "description": "A trip-hop classic built on a heartbeat-like rhythm and a fragile, ethereal vocal."
+  },
+  {
+    "id": 101,
+    "title": "Porcelain",
+    "artist": "Moby",
+    "genre": "electronic",
+    "mood_tags": [
+      "melancholy",
+      "peaceful",
+      "reflective"
+    ],
+    "tempo": "slow",
+    "instrumental": false,
+    "description": "A wistful, string-laced electronic track with a gentle, downtempo pulse."
+  },
+  {
+    "id": 102,
+    "title": "Intro",
+    "artist": "The xx",
+    "genre": "electronic",
+    "mood_tags": [
+      "moody",
+      "building",
+      "atmospheric"
+    ],
+    "tempo": "medium",
+    "instrumental": true,
+    "description": "A minimalist, guitar-and-bass driven instrumental that builds slowly into a quiet swell."
+  },
+  {
+    "id": 103,
+    "title": "Dog Days Are Over",
+    "artist": "Florence + the Machine",
+    "genre": "pop",
+    "mood_tags": [
+      "euphoric",
+      "triumphant",
+      "energetic"
+    ],
+    "tempo": "fast",
+    "instrumental": false,
+    "description": "A rousing indie-pop anthem built on pounding drums and soaring, celebratory vocals."
+  },
+  {
+    "id": 104,
+    "title": "Ho Hey",
+    "artist": "The Lumineers",
+    "genre": "country",
+    "mood_tags": [
+      "joyful",
+      "warm",
+      "sing-along"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "A stomping, folk-influenced sing-along built around a simple, communal chorus."
+  },
+  {
+    "id": 105,
+    "title": "Home",
+    "artist": "Edward Sharpe and the Magnetic Zeros",
+    "genre": "country",
+    "mood_tags": [
+      "joyful",
+      "warm",
+      "playful"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "A whistling, whimsical folk-pop tune celebrating comfort and companionship."
+  },
+  {
+    "id": 106,
+    "title": "Riders on the Storm",
+    "artist": "The Doors",
+    "genre": "rock",
+    "mood_tags": [
+      "moody",
+      "mysterious",
+      "atmospheric"
+    ],
+    "tempo": "slow",
+    "instrumental": false,
+    "description": "A brooding, atmospheric rock track layered with rain sounds and a hypnotic organ line."
+  },
+  {
+    "id": 107,
+    "title": "Purple Haze",
+    "artist": "Jimi Hendrix",
+    "genre": "rock",
+    "mood_tags": [
+      "psychedelic",
+      "intense",
+      "energetic"
+    ],
+    "tempo": "medium",
+    "instrumental": false,
+    "description": "A groundbreaking psychedelic rock track built on a searing, distorted guitar riff."
+  }
+]
