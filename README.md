@@ -107,25 +107,27 @@ Assumes a clean macOS machine with Python 3.11+ installed.
 
 ## 5. Sample Interactions
 
-> The three examples below are placeholders — run the app yourself and paste the real output before submitting.
+These are real `python main.py` runs. At the time they were captured, the configured Anthropic account had **no API credit balance**, so the generation step (Claude picking and explaining the final 3 songs) failed with a billing error on every query — the retrieval step still ran for real and is reported below exactly as logged. The app caught the billing error and printed a clean message instead of crashing, which is itself a real, unscripted exercise of the error-handling path described in Design Decisions. `[FILL IN: once the account has credit, rerun these same queries and replace the "Final output" lines below with the real generated recommendations + confidence scores]`
 
 ### Example 1
 
-- **Query:** `[FILL IN: Run python main.py, paste an actual query here]`
-- **Retrieved candidates (summary):** `[FILL IN: Run python main.py, paste the real retrieved candidates/log output here]`
-- **Final output:** `[FILL IN: Run python main.py, paste the real recommendation output here]`
+- **Query:** `chill instrumental music for studying`
+- **Retrieved candidates (summary):** `Study Session (0.689), Intro (0.505), Opus (0.465), Prelude in C Major (0.457), Late Night Library (0.456), Homework Break (0.449), Africa (Instrumental Study Mix) (0.439), Experience (0.436)`
+- **Final output:** `Error: The Anthropic API returned an error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdZGuuoz4QhySiEjCFxy5'}`
 
 ### Example 2
 
-- **Query:** `[FILL IN: Run python main.py, paste an actual query here]`
-- **Retrieved candidates (summary):** `[FILL IN: Run python main.py, paste the real retrieved candidates/log output here]`
-- **Final output:** `[FILL IN: Run python main.py, paste the real recommendation output here]`
+- **Query:** `asdkjfh qwoieur nonsense gibberish` (nonsense-query edge case)
+- **Retrieved candidates (summary):** `Da Funk (0.217), Desk Lamp Glow (0.199), Coffee Shop Window (0.175), Says (0.162), Superstition (0.159), Homework Break (0.159), The Message (0.158), Air on the G String (0.152)` — retrieval still returned 8 results with no crash, just uniformly low similarity scores since the query shares no real vocabulary with any song
+- **Final output:** `Error: The Anthropic API returned an error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdZGuwbdznW18MsyMz4tg'}`
 
 ### Example 3
 
-- **Query:** `[FILL IN: Run python main.py, paste an actual query here]`
-- **Retrieved candidates (summary):** `[FILL IN: Run python main.py, paste the real retrieved candidates/log output here]`
-- **Final output:** `[FILL IN: Run python main.py, paste the real recommendation output here]`
+- **Query:** `upbeat 90s Japanese city pop for a road trip` (adversarial — the catalog has no Japanese city pop)
+- **Retrieved candidates (summary):** `Africa (0.493), Midnight City (0.481), Around the World (0.454), Take Me Home, Country Roads (0.450), Music for Airports 1/1 (0.448), Levitating (0.445), The Message (0.441), N.Y. State of Mind (0.440)` — retrieval fell back to loosely related upbeat/nostalgic songs rather than erroring on the unmatched genre, exactly as expected for a catalog with no city pop in it
+- **Final output:** `Error: The Anthropic API returned an error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CdZGuyL524QJcu2oNx5aa'}`
+
+Additionally, submitting a **blank input** (pressing Enter with no text) at the `>` prompt never reaches the retriever or the API at all — `main.py`'s input loop has an explicit `if not query: continue` check that silently re-prompts, confirmed by a real run that produced no retrieval log line and no error for that input.
 
 ## 6. Design Decisions
 
