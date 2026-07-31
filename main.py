@@ -18,6 +18,7 @@ def print_recommendations(recommendations) -> None:
     print("\nHere are your recommendations:\n")
     for i, song in enumerate(recommendations, start=1):
         print(f"{i}. {song['title']} — {song['artist']} ({song['genre']})")
+        print(f"   Confidence: {song.get('confidence', 0.0):.2f}")
         print(f"   {song.get('reason', '')}")
     print()
 

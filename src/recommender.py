@@ -8,6 +8,7 @@ from typing import List, Dict
 import anthropic
 
 from .validator import validate_recommendations, fallback_recommendations
+from .scorer import attach_confidence
 
 logger = logging.getLogger(__name__)
 
@@ -121,7 +122,9 @@ class Recommender:
             len(candidates),
             [(s["title"], round(sc, 4)) for s, sc in candidates],
         )
-        candidate_songs = [song for song, _ in candidates]
+        # Carry each candidate's retrieval similarity along on the dict itself so it
+        # survives validation/fallback and can feed the confidence score later.
+        candidate_songs = [{**song, "_similarity": score} for song, score in candidates]
 
         user_message = _build_user_message(query, candidates)
         raw_text = self._call_model(user_message)
@@ -136,7 +139,7 @@ class Recommender:
         logger.info("Validation result: %d valid, %d invalid", len(valid), len(invalid))
 
         if len(valid) >= NUM_RECOMMENDATIONS:
-            return valid[:NUM_RECOMMENDATIONS]
+            return attach_confidence(valid[:NUM_RECOMMENDATIONS], stage="first_try")
 
         # Re-prompt once with a correction message.
         logger.warning("Validation failed or incomplete; re-prompting model once")
@@ -159,8 +162,9 @@ class Recommender:
         )
 
         if len(retry_valid) >= NUM_RECOMMENDATIONS:
-            return retry_valid[:NUM_RECOMMENDATIONS]
+            return attach_confidence(retry_valid[:NUM_RECOMMENDATIONS], stage="retry")
 
         # Fall back to the top retrieved candidates.
         logger.error("Validation failed twice; falling back to top retrieved candidates")
-        return fallback_recommendations(candidate_songs, k=NUM_RECOMMENDATIONS)
+        fallback = fallback_recommendations(candidate_songs, k=NUM_RECOMMENDATIONS)
+        return attach_confidence(fallback, stage="fallback")

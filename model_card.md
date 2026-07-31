@@ -1,5 +1,36 @@
 # 🎧 Model Card: Music Recommender Simulation
 
+## Current System: RAG-Based Music Recommender
+
+This repo evolved from the rule-based "Sad Pop" simulation documented below into a retrieval-augmented, Claude-powered recommender (see `README.md` for the full architecture). This section is the responsible-AI reflection for that current system. The original Module 1-3 model card follows unchanged, starting at "1. Model Name" below.
+
+### AI Collaboration
+
+Claude Code (via this same Claude Code session) generated the initial retriever/recommender/validator scaffolding — `src/retriever.py` (sentence-transformers + cosine similarity), `src/recommender.py` (Anthropic API call + JSON parsing), and `src/validator.py` (title+artist matching guardrail) — from a detailed architectural spec describing the desired pipeline, guardrail behavior, and logging requirements. I reviewed the generated code, ran it against the real dataset, and iterated with Claude Code across several follow-up turns: generating the Mermaid architecture diagram and reconciling it against the actual code, rewriting the README for a portfolio audience, and building out this evaluation/confidence-scoring system. Claude Code also wrote the automated test suite (`tests/test_retriever.py`, `tests/test_validator.py`, `tests/test_evaluation.py`) and ran it for real rather than describing hypothetical results.
+
+**One specific HELPFUL AI suggestion:** the validation guardrail's retry-then-fallback pattern (`Recommender.recommend()` in `src/recommender.py`) — on a hallucinated recommendation, re-prompt the model exactly once with an explicit correction message, and only fall back to raw retrieved songs if that retry also fails. This worked well because it's bounded (at most two model calls per query, so no risk of looping forever on a confused model) while still giving the model a real chance to self-correct before giving up on generation entirely. `tests/test_evaluation.py::test_pipeline_catches_hallucinated_song_and_recovers_on_retry` confirms this recovers correctly when the retry succeeds, and `test_pipeline_falls_back_to_top_retrieved_songs_after_two_failures` confirms the fallback is exact (top-3 retrieved songs) when it doesn't.
+
+**One specific FLAWED AI suggestion:** while building `tests/test_evaluation.py` in this same session, Claude Code wrote a test asserting that every recommended song in a retry-recovery scenario would have `confidence > 0`. Running the real test suite (not just writing it) caught this as false: with the tiny 5-song fixture dataset used for that test, 2 of the top-3 retrieved songs had a genuinely zero cosine similarity to the query (no shared vocabulary in the bag-of-words fake embedding model used to keep tests offline), so their correctly-computed confidence was legitimately `0.0` — the assertion was wrong, not the scoring code. The fix was to assert confidence is a valid `[0.0, 1.0]` score and that the top retrieval match has the highest confidence, rather than assuming every candidate must score above zero. This is recorded in `EVALUATION.md` under Automated Test Results rather than silently corrected and hidden.
+
+### System Limitations
+
+- **In-memory retrieval doesn't scale past a small dataset.** `SongRetriever.__init__` embeds the entire catalog into a numpy array held in RAM; there is no indexing structure (e.g. approximate nearest neighbor) that would let this scale to a large catalog efficiently.
+- **No persistent vector store — the index rebuilds every run.** Every `python main.py` invocation re-embeds all ~107 songs from scratch (a few seconds); nothing is cached to disk between runs.
+- **Single validation retry, not iterative refinement.** `Recommender.recommend()` retries exactly once on a failed validation, then falls back — there's no loop that keeps narrowing in with increasingly specific feedback.
+- **Dataset size and diversity limits.** The catalog is roughly 100 songs; an obscure, hyper-specific, or genre-absent request (see the "90s Japanese city pop" adversarial query planned in `EVALUATION.md`) can only retrieve the closest available songs, which may not actually match well.
+- **The guardrail's title+artist match is exact (case-insensitive) string matching, not fuzzy matching.** A model response with a typo, alternate spelling, or reworded title would be rejected as "hallucinated" even if it meant the retrieved song. This is a known trade-off, not an oversight — see `README.md`'s Design Decisions section.
+- **No live manual evaluation of the generation layer has been performed yet** (see `EVALUATION.md`'s Human/Manual Evaluation section) — no `ANTHROPIC_API_KEY` was available in the development environment during this evaluation pass, so real Claude-generated output and confidence-score patterns across varied queries have not yet been observed and recorded.
+
+### Biases and Risks
+
+Looking at the actual composition of `data/songs.json` (107 songs): genre representation is uneven — classical, electronic, rock, and pop each have 13-14 songs, while metal and ambient have only 5 each, and the catalog skews heavily toward well-known Western/English-language "canonical" tracks (classic rock, jazz standards, Anglo-American pop/hip-hop/country) with no representation of, for example, K-pop, Latin, or other non-English-language popular genres. This means the retriever can only ever surface what's in that curated list — a request for a genre or regional style not represented in the dataset will retrieve whatever is closest by embedding similarity, not what the user actually meant, and the system has no way to signal "nothing in this catalog really matches." More generally, recommendation quality here depends entirely on dataset curation: the system reflects the tastes and blind spots of whoever built `data/songs.json` (in this case, generated by Claude Code from a request for "real, well-known songs" across a fixed list of genre categories), not some neutral or complete picture of music.
+
+### Testing Summary
+
+See `EVALUATION.md` for full results: 17/17 automated tests passed (after fixing one incorrect test assertion, described above). No live-query average confidence is reported yet, since no manual runs against the real Claude API were performed in this evaluation pass — see `EVALUATION.md`'s Confidence Scoring Summary for what is and isn't verified so far.
+
+---
+
 ## 1. Model Name
 
 **Sad Pop**
